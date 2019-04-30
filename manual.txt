@@ -1,0 +1,25 @@
+Snake 3000
+
+Steuerung:
+	Spieler 1: Pfeiltasten
+	Spieler 2: W,A,S,D
+	
+Dauer: 30 Sekunden
+
+In diesem Spiel gibt es 3 Modi.
+
+1. Multiplayer
+In diesem Modus können 2 Spieler gleichzeitig spielen. Das Ziel ist es so viel Äpfel wie möglich zu essen. Falls man sich 
+selbst in den Schwanz fährt gibt Punkteabzug. Falls man dem Gegner in den Schwanz fährt gibt es dem Gegner Punkteabzug.
+Im Falle eines Treffers von Kopf zu Kopf ist das Spiel vorbei und der Spieler mit mehr Punkten gewinnt. 
+Falls es nicht zu einem Treffer kommt ist das Spiel vorbei, wenn der Timer abläuft.
+
+2. Arcade
+In diesem Modus ist das Ziel so viel Punkte wie möglich zu sammeln und den Highscore zu schlagen. Falls man sich selbst 
+in den Schwanz fährt gibt es Punkteabzug. Das Spiel ist zu Ende, wenn der Timer auf null ist.
+
+3. Vs Pc
+Das Ziel hier ist den Computer zu schlagen. Am Start muss eine Schwierigkeitsstufe angegeben werden. Es gibt drei Stufen
+Stufe 1 repräsentiert die einfachste Stufe und Stufe 3 die härteste. Falls man dem Gegner in den Schwanz fährt gibt es 
+dem Gegner Punkteabzug. Im Falle eines Treffers von Kopf zu Kopf ist das Spiel vorbei und der Spieler mit mehr Punkten gewinnt. 
+Falls es nicht zu einem Treffer kommt ist das Spiel vorbei, wenn der Timer abläuft.
