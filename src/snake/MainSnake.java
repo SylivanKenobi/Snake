@@ -32,7 +32,7 @@ public class MainSnake extends PApplet {
 		player1 = new SpielerSnake(this, width - 20, height / 2, 38, 40, 37, 39);
 		player2 = new SpielerSnake(this, 20, height / 2, 87, 83, 65, 68);
 		apple = new AppleCollection(this);
-		apple.createAplles(appleCount);
+		apple.createApples(appleCount);
 
 	}
 

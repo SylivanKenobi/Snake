@@ -23,7 +23,7 @@ public class AppleCollection extends ArrayList<Apple> {
 	 * Apples erstellen und in der Collection speichern
 	 * @param anz
 	 */
-	public void createAplles(int anz) {
+	public void createApples(int anz) {
 		while (this.size() < anz) {
 			track = true;
 			x = ((int) p.random(p.width - 50)) / 20;
