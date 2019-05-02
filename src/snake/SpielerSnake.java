@@ -9,8 +9,9 @@ import processing.core.*;
  * @author Sylvain Gilgen
  *
  */
+
 public class SpielerSnake extends Element {
-	boolean isRight, isLeft, isUp, isDown = false;
+	protected boolean isRight, isLeft, isUp, isDown = false;
 	private PVector player;
 	private int keyUp, keyDown, keyLeft, keyRight, speedy, enemysHit, indexVonGegner, gegnerAuswahl, enemyGone,
 			schwierigkeit, minSchwierigkeit;
@@ -93,7 +94,6 @@ public class SpielerSnake extends Element {
 			isRight = false;
 		}
 	}
-
 	/**
 	 * Spieler darstellen
 	 */
@@ -193,5 +193,89 @@ public class SpielerSnake extends Element {
 	 */
 	public int points() {
 		return tail.size();
+	}
+	
+	public boolean isRight() {
+		return isRight;
+	}
+
+	public boolean isLeft() {
+		return isLeft;
+	}
+
+	public boolean isUp() {
+		return isUp;
+	}
+
+	public boolean isDown() {
+		return isDown;
+	}
+
+	public PVector getPlayer() {
+		return player;
+	}
+
+	public int getKeyUp() {
+		return keyUp;
+	}
+
+	public int getKeyDown() {
+		return keyDown;
+	}
+
+	public int getKeyLeft() {
+		return keyLeft;
+	}
+
+	public int getKeyRight() {
+		return keyRight;
+	}
+
+	public int getSpeedy() {
+		return speedy;
+	}
+
+	public int getEnemysHit() {
+		return enemysHit;
+	}
+
+	public int getIndexVonGegner() {
+		return indexVonGegner;
+	}
+
+	public int getGegnerAuswahl() {
+		return gegnerAuswahl;
+	}
+
+	public int getEnemyGone() {
+		return enemyGone;
+	}
+
+	public int getSchwierigkeit() {
+		return schwierigkeit;
+	}
+
+	public int getMinSchwierigkeit() {
+		return minSchwierigkeit;
+	}
+
+	public SnakeTail getTail() {
+		return tail;
+	}
+
+	public Float[][] getDistanzMap() {
+		return distanzMap;
+	}
+
+	public ArrayList<Apple> getToRemoveG() {
+		return toRemoveG;
+	}
+
+	public PVector getEnemy() {
+		return enemy;
+	}
+
+	public String getLevel() {
+		return level;
 	}
 }

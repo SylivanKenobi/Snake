@@ -3,7 +3,7 @@ package snake;
 import java.util.*;
 import processing.core.*;
 
-/**
+/*
  * 
  * @author Sylvain Gilgen
  *
@@ -17,8 +17,9 @@ public class SnakeTail extends ArrayList<PVector> {
 		rad = 50;
 	}
 
-	/**
+	/*
 	 * Schwanz der Schlange verwalten
+	 * 
 	 * @param v
 	 */
 	public void snake(PVector player) {
@@ -32,8 +33,8 @@ public class SnakeTail extends ArrayList<PVector> {
 		}
 
 	}
-	
-	/**
+
+	/*
 	 * Schwanz der Sclange anzeigen
 	 */
 	public void drawSnake() {
@@ -43,17 +44,19 @@ public class SnakeTail extends ArrayList<PVector> {
 		}
 	}
 
-	/**
+	/*
 	 * Schwanz der Schlange vergrössern
-	 * @param player
+	 * 
+	 * @param player: PVector des Spielers
 	 */
 	public void grow(PVector player) {
 		this.add(player);
 	}
 
-	/**
+	/*
 	 * Kontrollieren ob der Spieler seinen eigenen Schwanz getroffen hat
-	 * @param player
+	 * 
+	 * @param player: PVectoer des spielers
 	 */
 	public void hitTail(PVector player) {
 		boolean gotHit = false;
@@ -65,11 +68,13 @@ public class SnakeTail extends ArrayList<PVector> {
 		if (gotHit == true) {
 			this.remove(this.size() - 1);
 		}
+
 	}
 
-	/**
+	/*
 	 * Kontrollieren ob der Gegner den Schwanz getroffen hat
-	 * @param player
+	 * 
+	 * @param player: PVector des Gegners
 	 */
 	public void tailGotHit(PVector player) {
 		boolean gotHit = false;
