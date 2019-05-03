@@ -38,7 +38,7 @@ public class SpielerSnake extends Element {
 		this.keyLeft = keyLeft;
 		this.keyRight = KeyRight;
 		this.keyUp = keyUp;
-		rad = 50;
+		rad = 40;
 		minSchwierigkeit = 30;
 		schwierigkeit = 10;
 		tail = new SnakeTail(p);

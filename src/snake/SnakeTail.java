@@ -18,7 +18,7 @@ public class SnakeTail extends ArrayList<PVector> {
 	 */
 	public SnakeTail(PApplet p) {
 		this.p = p;
-		rad = 50;
+		rad = 40;
 	}
 
 	/*
