@@ -7,11 +7,11 @@ import javax.swing.JOptionPane;
 import processing.core.*;
 
 /**
- * 
+ * Klasse zum Darstellen der verschiedenen Modi
  * @author Sylvain Gilgen
  *
  */
-public class Modus {
+public class Modus{
 	public static final int GAME_MENU = 0;
 	public static final int GAME_RUNNING = 1;
 	public static final int PAUSED = 2;
@@ -27,6 +27,10 @@ public class Modus {
 	private PImage snake, logo;
 	private String spielerName;
 
+	/**
+	 * Konstruktor zum Erstellen eines Modusobjektes
+	 * @param p PApplet
+	 */
 	public Modus(PApplet p) {
 		this.p = p;
 		btn1 = new PVector(p.width / 2 - 100, 500);
@@ -55,7 +59,7 @@ public class Modus {
 		p.text("Multiplayer", btn1.x + rad, btn1.y + 20);
 		p.text("Arcade", btn2.x + rad, btn2.y + 20);
 		p.text("Vs PC", btn3.x + rad, btn3.y + 20);
-		p.text("Manual", btn4.x + rad, btn4.y + 20);
+		p.text("Anleitung", btn4.x + rad, btn4.y + 20);
 		p.ellipse(btn1.x, btn1.y, rad, rad);
 		p.ellipse(btn2.x, btn2.y, rad, rad);
 		p.ellipse(btn3.x, btn3.y, rad, rad);

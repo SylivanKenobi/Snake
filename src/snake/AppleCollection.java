@@ -4,6 +4,7 @@ import java.util.*;
 import processing.core.*;
 
 /**
+ * In dieser Klasse werden alle Apples des Spieles verwaltet.
  * 
  * @author Sylvain Gilgen
  *
@@ -15,12 +16,17 @@ public class AppleCollection extends ArrayList<Apple> {
 	PVector newXY, oldXY;
 	boolean isValid;
 
+	/**
+	 * Kunstruktor zum erstellen einer AppleCollection
+	 * @param p PApplet
+	 */
 	public AppleCollection(PApplet p) {
 		this.p = p;
 	}
 
 	/**
 	 * Apples erstellen und in der Collection speichern
+	 * 
 	 * @param anz
 	 */
 	public void createApples(int anz) {
@@ -42,9 +48,10 @@ public class AppleCollection extends ArrayList<Apple> {
 			}
 		}
 	}
-	
+
 	/**
 	 * Neuer Apple erstellen und in der Collection speichern
+	 * 
 	 * @param anz
 	 */
 	public void newApple(int anz) {
@@ -65,7 +72,7 @@ public class AppleCollection extends ArrayList<Apple> {
 			if (isValid == true) {
 				this.add(apple = new Apple(p, x, y, 20, (int) p.random(255)));
 				counter++;
-			}			
+			}
 		}
 	}
 }

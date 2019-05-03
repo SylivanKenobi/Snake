@@ -3,7 +3,7 @@ package snake;
 import processing.core.PApplet;
 
 /**
- * 
+ * Superklasse für SpielerSnake und Apple
  * @author Sylvain Gilgen
  *
  */

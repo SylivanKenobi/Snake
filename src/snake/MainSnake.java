@@ -1,9 +1,11 @@
 package snake;
 
+import java.util.Random;
+
 import processing.core.*;
 
 /**
- * 
+ * Dies ist die Hauptklasse hier kommen alle Klassen zusammen und formen das Spiel.
  * @author Sylvain Gilgen
  * 
  * @version V 1.0
@@ -11,9 +13,9 @@ import processing.core.*;
  */
 
 public class MainSnake extends PApplet {
-	public static final int appleCount = 50;
-	public static int timer = 20;
-	AppleCollection apple;
+	public static final int appleCount = 150;
+	public static int timer = 25;
+	AppleCollection apples;
 	SpielerSnake snakeOne;
 	SpielerSnake snakeTwo;
 	Modus modus;
@@ -23,18 +25,27 @@ public class MainSnake extends PApplet {
 		PApplet.main("snake.MainSnake");
 	}
 
+	/**
+	 * Fenster instanziieren
+	 */
 	public void settings() {
 		size(displayWidth - 100, displayHeight - 100);
 	}
 
+	/**
+	 * Bestandteile des Spieles Instanziieren
+	 */
 	public void setup() {
 		modus = new Modus(this);
 		snakeOne = new SpielerSnake(this, width - 20, height / 2, 38, 40, 37, 39);
 		snakeTwo = new SpielerSnake(this, 20, height / 2, 87, 83, 65, 68);
-		apple = new AppleCollection(this);
-		apple.createApples(appleCount);
+		apples = new AppleCollection(this);
+		apples.createApples(appleCount);
 	}
 
+	/**
+	 * Animantionen des Spieles
+	 */
 	public void draw() {
 		modus.pointsAusgabe(snakeOne.points(), snakeTwo.points());
 		switch (modus.getGameState()) {
@@ -44,13 +55,12 @@ public class MainSnake extends PApplet {
 		case Modus.GAME_RUNNING:
 			vectorSnakeOne = new PVector(snakeOne.xPos, snakeOne.yPos);
 			vectorSnakeTwo = new PVector(snakeTwo.xPos, snakeTwo.yPos);
-			snakeOne.collisionDetection(apple, vectorSnakeOne);
-			snakeTwo.collisionDetection(apple, vectorSnakeTwo);
+			snakeOne.collisionDetection(apples, vectorSnakeOne);
+			snakeTwo.collisionDetection(apples, vectorSnakeTwo);
 			switch (modus.getSelectedMode()) {
 			case Modus.MULTIPLAYER:
 				twoPlayer();
 				modus.twoPlayer();
-				snakeTwo.move();
 				snakeTwo.display();
 				break;
 			case Modus.ARCADE:
@@ -59,14 +69,12 @@ public class MainSnake extends PApplet {
 			case Modus.VS_PC:
 				twoPlayer();
 				modus.twoPlayer();
-				snakeTwo.move();
 				snakeTwo.display();
-				snakeTwo.autoMove(apple, this);
-				snakeTwo.direction();
+				snakeTwo.autoMove(apples, this);
 			}
 			snakeOne.move();
 			snakeOne.display();
-			for (Apple i : apple) {
+			for (Apple i : apples) {
 				i.display();
 			}
 			break;
@@ -92,6 +100,9 @@ public class MainSnake extends PApplet {
 		}
 	}
 
+	/**
+	 * Methode zum kontrollieren ob eine Taste gedrückt wurde
+	 */
 	public void keyPressed() {
 		snakeOne.direction();
 		snakeTwo.direction();
@@ -100,7 +111,12 @@ public class MainSnake extends PApplet {
 		}
 	}
 
+	/**
+	 * Methode zum Zweispielermodus
+	 */
 	public void twoPlayer() {
+		snakeTwo.move();
+		snakeTwo.direction();
 		snakeOne.tail.tailGotHit(vectorSnakeOne);
 		snakeTwo.tail.tailGotHit(vectorSnakeOne);
 		if (vectorSnakeOne.dist(vectorSnakeTwo) < snakeOne.rad) {

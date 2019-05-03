@@ -5,7 +5,7 @@ import java.util.*;
 import java.util.Map.Entry;
 
 /**
- * 
+ * Klasse zum beschreiben und auslesen von Dateien.
  * @author Sylvain Gilgen
  *
  */

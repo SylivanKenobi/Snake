@@ -5,7 +5,7 @@ import javax.swing.JOptionPane;
 import processing.core.*;
 
 /**
- * 
+ * Diese Klasse ist die Schlange
  * @author Sylvain Gilgen
  *
  */
@@ -21,6 +21,16 @@ public class SpielerSnake extends Element {
 	private PVector vectorApple;
 	private String level;
 
+	/**
+	 * Kunstruktor zum erstellen einer neuen Schlange
+	 * @param p PApplet
+	 * @param xPos x-Position der Schlange
+	 * @param yPos y-Position der Schlange
+	 * @param keyUp keyCode der Taste zum nach Oben bewegen
+	 * @param keyDown keyCode der Taste zum nach Unten bewegen
+	 * @param keyLeft keyCode der Taste zum nach Links bewegen
+	 * @param KeyRight keyCode der Taste zum nach Rechts bewegen
+	 */
 	public SpielerSnake(PApplet p, int xPos, int yPos, int keyUp, int keyDown, int keyLeft, int KeyRight) {
 		super(p, xPos, yPos);
 		speedy = 20;
@@ -105,7 +115,7 @@ public class SpielerSnake extends Element {
 	}
 
 	/**
-	 * Ki für den Spieler
+	 * Mit dieser Methode spielt sich die Schlange selbst.
 	 * 
 	 * @param apples
 	 */
@@ -213,6 +223,10 @@ public class SpielerSnake extends Element {
 		return tail.size();
 	}
 
+	/**
+	 * Getter
+	 * @return
+	 */
 	public boolean isLeft() {
 		return isLeft;
 	}

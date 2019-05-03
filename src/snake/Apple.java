@@ -11,11 +11,11 @@ public class Apple extends Element {
 
 	/**
 	 * Konstruktor zum Apple erstellen
-	 * @param p
-	 * @param xPos
-	 * @param yPos
-	 * @param rad
-	 * @param fill
+	 * @param p PApplet
+	 * @param xPos x-Position des Apfels
+	 * @param yPos y-Position des Apfels
+	 * @param rad Radius des Apfels
+	 * @param fill Farbe des Apfels
 	 */
 	public Apple(PApplet p, int xPos, int yPos, int rad, int fill) {
 		super(p, xPos, yPos, rad, fill);

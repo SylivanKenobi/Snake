@@ -18,5 +18,4 @@ class SpielerSnakeTest extends PApplet {
 		snake.direction();
 		assertEquals(true, snake.isLeft());
 	}
-
 }

@@ -4,7 +4,7 @@ import java.util.*;
 import processing.core.*;
 
 /*
- * 
+ * Klasse des Schwanzes der Schlange
  * @author Sylvain Gilgen
  *
  */
@@ -12,6 +12,10 @@ public class SnakeTail extends ArrayList<PVector> {
 	private PApplet p;
 	private int rad;
 
+	/**
+	 * Konstruktor zum erstellen eines Schwanzes
+	 * @param p PApplet
+	 */
 	public SnakeTail(PApplet p) {
 		this.p = p;
 		rad = 50;
