@@ -13,8 +13,8 @@ import processing.core.*;
  */
 
 public class MainSnake extends PApplet {
-	public static final int appleCount = 150;
-	public static int timer = 25;
+	public static final int appleCount = 30;
+	public static int timer = 30;
 	AppleCollection apples;
 	SpielerSnake snakeOne;
 	SpielerSnake snakeTwo;

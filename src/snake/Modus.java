@@ -8,10 +8,11 @@ import processing.core.*;
 
 /**
  * Klasse zum Darstellen der verschiedenen Modi
+ * 
  * @author Sylvain Gilgen
  *
  */
-public class Modus{
+public class Modus {
 	public static final int GAME_MENU = 0;
 	public static final int GAME_RUNNING = 1;
 	public static final int PAUSED = 2;
@@ -29,14 +30,15 @@ public class Modus{
 
 	/**
 	 * Konstruktor zum Erstellen eines Modusobjektes
+	 * 
 	 * @param p PApplet
 	 */
 	public Modus(PApplet p) {
 		this.p = p;
-		btn1 = new PVector(p.width / 2 - 100, 500);
-		btn2 = new PVector(p.width / 2 - 100, 600);
-		btn3 = new PVector(p.width / 2 - 100, 700);
-		btn4 = new PVector(p.width / 2 - 100, 800);
+		btn1 = new PVector(p.width / 2 - 100, p.height / 2);
+		btn2 = new PVector(p.width / 2 - 100, p.height / 2 + 100);
+		btn3 = new PVector(p.width / 2 - 100, p.height / 2 + 200);
+		btn4 = new PVector(p.width / 2 - 100, p.height / 2 + 300);
 		rad = 50;
 		snake = p.loadImage("Snake.png");
 		logo = p.loadImage("logo.png");
@@ -74,7 +76,7 @@ public class Modus{
 		if (p.mousePressed && mouse.dist(btn2) < rad) {
 			do {
 				spielerName = JOptionPane.showInputDialog("Spielername");
-				if(spielerName == null) {
+				if (spielerName == null) {
 					return;
 				}
 			} while (spielerName.equals(""));
@@ -116,7 +118,7 @@ public class Modus{
 		p.text("Menu", btn2.x + rad, btn2.y + 20);
 		p.text("Quit", btn3.x + rad, btn3.y + 20);
 		p.strokeWeight(3);
-		p.stroke(100,100,100);
+		p.stroke(100, 100, 100);
 		p.ellipse(btn1.x, btn1.y, rad, rad);
 		p.ellipse(btn2.x, btn2.y, rad, rad);
 		p.ellipse(btn3.x, btn3.y, rad, rad);
@@ -206,12 +208,12 @@ public class Modus{
 		p.rectMode(0);
 		p.rect(0, 200, p.width - 1, p.height - 200);
 		p.fill(0);
-		p.text("Fertig " + spielerName, btn1.x + rad, 400);
+		p.text("Fertig " + spielerName, btn1.x + rad, p.height / 2 - 100);
 		p.text("Menu", btn1.x + rad, btn1.y + 20);
 		p.text("Highscore", btn2.x + rad, btn2.y + 20);
 		p.text("Quit", btn3.x + rad, btn3.y + 20);
 		p.strokeWeight(3);
-		p.stroke(100,100,100);
+		p.stroke(100, 100, 100);
 		p.ellipse(btn1.x, btn1.y, rad, rad);
 		p.ellipse(btn2.x, btn2.y, rad, rad);
 		p.ellipse(btn3.x, btn3.y, rad, rad);
@@ -235,11 +237,11 @@ public class Modus{
 		p.rectMode(0);
 		p.rect(0, 200, p.width - 1, p.height - 200);
 		p.fill(0);
-		p.text("Fertig", btn1.x + rad, 400);
+		p.text("Fertig", btn1.x + rad, p.height / 2 - 100);
 		p.text("Menu", btn1.x + rad, btn1.y + 20);
 		p.text("Quit", btn2.x + rad, btn2.y + 20);
 		p.strokeWeight(3);
-		p.stroke(100,100,100);
+		p.stroke(100, 100, 100);
 		p.ellipse(btn1.x, btn1.y, rad, rad);
 		p.ellipse(btn2.x, btn2.y, rad, rad);
 		if (p.mousePressed && mouse.dist(btn1) < rad) {

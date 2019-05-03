@@ -44,7 +44,7 @@ public class AppleCollection extends ArrayList<Apple> {
 				}
 			}
 			if (isValid == true) {
-				this.add(apple = new Apple(p, x, y, 20, (int) p.random(255)));
+				this.add(apple = new Apple(p, x, y, 20, 255));
 			}
 		}
 	}
@@ -70,7 +70,7 @@ public class AppleCollection extends ArrayList<Apple> {
 				}
 			}
 			if (isValid == true) {
-				this.add(apple = new Apple(p, x, y, 20, (int) p.random(255)));
+				this.add(apple = new Apple(p, x, y, 20, 255));
 				counter++;
 			}
 		}

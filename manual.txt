@@ -5,7 +5,8 @@ Version: 1.0
 Steuerung:
 	Spieler 1: Pfeiltasten
 	Spieler 2: W,A,S,D
-	
+	Pause: P
+
 Dauer: 30 Sekunden
 
 In diesem Spiel gibt es 3 Modi.
