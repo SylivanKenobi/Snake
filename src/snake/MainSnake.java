@@ -114,16 +114,15 @@ public class MainSnake extends PApplet {
 	/**
 	 * Methode zum Zweispielermodus
 	 */
-	public void twoPlayer() {
+	private void twoPlayer() {
 		snakeTwo.move();
 		snakeTwo.direction();
-		snakeOne.tail.tailGotHit(vectorSnakeOne);
+		snakeOne.tail.tailGotHit(vectorSnakeTwo);
 		snakeTwo.tail.tailGotHit(vectorSnakeOne);
 		if (vectorSnakeOne.dist(vectorSnakeTwo) < snakeOne.rad) {
 			textSize(100);
 			text("Game Over", 500, 400);
 			modus.setGameState(3);
 		}
-
 	}
 }

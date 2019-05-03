@@ -39,7 +39,7 @@ public class Modus{
 		btn4 = new PVector(p.width / 2 - 100, 800);
 		rad = 50;
 		snake = p.loadImage("Snake.png");
-		logo = p.loadImage("logoLogo.png");
+		logo = p.loadImage("logo.png");
 		gameState = 0;
 		selectedMode = 0;
 		print = false;
@@ -60,6 +60,8 @@ public class Modus{
 		p.text("Arcade", btn2.x + rad, btn2.y + 20);
 		p.text("Vs PC", btn3.x + rad, btn3.y + 20);
 		p.text("Anleitung", btn4.x + rad, btn4.y + 20);
+		p.strokeWeight(3);
+		p.stroke(0);
 		p.ellipse(btn1.x, btn1.y, rad, rad);
 		p.ellipse(btn2.x, btn2.y, rad, rad);
 		p.ellipse(btn3.x, btn3.y, rad, rad);
@@ -113,6 +115,8 @@ public class Modus{
 		p.text("Resume", btn1.x + rad, btn1.y + 20);
 		p.text("Menu", btn2.x + rad, btn2.y + 20);
 		p.text("Quit", btn3.x + rad, btn3.y + 20);
+		p.strokeWeight(3);
+		p.stroke(100,100,100);
 		p.ellipse(btn1.x, btn1.y, rad, rad);
 		p.ellipse(btn2.x, btn2.y, rad, rad);
 		p.ellipse(btn3.x, btn3.y, rad, rad);
@@ -206,6 +210,8 @@ public class Modus{
 		p.text("Menu", btn1.x + rad, btn1.y + 20);
 		p.text("Highscore", btn2.x + rad, btn2.y + 20);
 		p.text("Quit", btn3.x + rad, btn3.y + 20);
+		p.strokeWeight(3);
+		p.stroke(100,100,100);
 		p.ellipse(btn1.x, btn1.y, rad, rad);
 		p.ellipse(btn2.x, btn2.y, rad, rad);
 		p.ellipse(btn3.x, btn3.y, rad, rad);
@@ -232,6 +238,8 @@ public class Modus{
 		p.text("Fertig", btn1.x + rad, 400);
 		p.text("Menu", btn1.x + rad, btn1.y + 20);
 		p.text("Quit", btn2.x + rad, btn2.y + 20);
+		p.strokeWeight(3);
+		p.stroke(100,100,100);
 		p.ellipse(btn1.x, btn1.y, rad, rad);
 		p.ellipse(btn2.x, btn2.y, rad, rad);
 		if (p.mousePressed && mouse.dist(btn1) < rad) {

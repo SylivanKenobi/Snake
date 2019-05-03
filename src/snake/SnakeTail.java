@@ -43,6 +43,7 @@ public class SnakeTail extends ArrayList<PVector> {
 	 */
 	public void drawSnake() {
 		for (PVector i : this) {
+			p.noStroke();
 			p.fill((this.indexOf(i) * 4), this.indexOf(i) * 2, this.indexOf(i) * 3);
 			p.ellipse(i.x, i.y, rad, rad);
 		}
