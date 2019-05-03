@@ -8,8 +8,16 @@ import processing.core.PApplet;
 import snake.AppleCollection;
 import snake.SpielerSnake;
 
+/**
+ * Applecollection testen
+ * @author Sylvain Gilgen
+ *
+ */
 class AppleCollectionTest extends PApplet {
 
+	/**
+	 * Testen ob die Methode newApple() funktioniert
+	 */
 	@Test
 	public void testAddApple() {
 		AppleCollection apples = new AppleCollection(this);
@@ -18,6 +26,9 @@ class AppleCollectionTest extends PApplet {
 		assertEquals(1, apples.size());
 	}
 
+	/**
+	 * Testen ob Methode createApples funktioniert
+	 */
 	@Test
 	public void testCreateApples() {
 		AppleCollection apples = new AppleCollection(this);

@@ -8,8 +8,16 @@ import processing.core.PApplet;
 import processing.core.PVector;
 import snake.SnakeTail;
 
+/**
+ * SnakeTail testen
+ * @author Sylvain Gilgen
+ *
+ */
 class SnakeTailTest extends PApplet{
 
+	/**
+	 * testen ob der Schwanz wachsen kann
+	 */
 	@Test
 	public void testGrow() {
 		SnakeTail tail = new SnakeTail(this);
@@ -18,6 +26,9 @@ class SnakeTailTest extends PApplet{
 		assertEquals(1, tail.size());
 	}
 	
+	/**
+	 * Testen der Methode hitTail()
+	 */
 	@Test
 	public void testHitTail() {
 		SnakeTail tail = new SnakeTail(this);
@@ -33,6 +44,9 @@ class SnakeTailTest extends PApplet{
 		assertEquals(3, tail.size());
 	}
 	
+	/**
+	 * Testen der Methode tailGotHit()
+	 */
 	@Test
 	public void testTailGotHit() {
 		SnakeTail tail = new SnakeTail(this);
