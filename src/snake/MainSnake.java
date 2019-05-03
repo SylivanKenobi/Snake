@@ -11,13 +11,13 @@ import processing.core.*;
  */
 
 public class MainSnake extends PApplet {
-	public static final int appleCount = 120;
-	public static int timer = 120;
+	public static final int appleCount = 50;
+	public static int timer = 20;
 	AppleCollection apple;
-	SpielerSnake player1;
-	SpielerSnake player2;
+	SpielerSnake snakeOne;
+	SpielerSnake snakeTwo;
 	Modus modus;
-	PVector p1, p2;
+	PVector vectorSnakeOne, vectorSnakeTwo;
 
 	public static void main(String[] args) {
 		PApplet.main("snake.MainSnake");
@@ -29,30 +29,29 @@ public class MainSnake extends PApplet {
 
 	public void setup() {
 		modus = new Modus(this);
-		player1 = new SpielerSnake(this, width - 20, height / 2, 38, 40, 37, 39);
-		player2 = new SpielerSnake(this, 20, height / 2, 87, 83, 65, 68);
+		snakeOne = new SpielerSnake(this, width - 20, height / 2, 38, 40, 37, 39);
+		snakeTwo = new SpielerSnake(this, 20, height / 2, 87, 83, 65, 68);
 		apple = new AppleCollection(this);
 		apple.createApples(appleCount);
-
 	}
 
 	public void draw() {
-		modus.pointsAusgabe(player1.points(), player2.points());
+		modus.pointsAusgabe(snakeOne.points(), snakeTwo.points());
 		switch (modus.getGameState()) {
 		case Modus.GAME_MENU:
 			modus.menu();
 			break;
 		case Modus.GAME_RUNNING:
-			p1 = new PVector(player1.xPos, player1.yPos);
-			p2 = new PVector(player2.xPos, player2.yPos);
-			player1.collisionDetection(apple, p1);
-			player2.collisionDetection(apple, p2);
+			vectorSnakeOne = new PVector(snakeOne.xPos, snakeOne.yPos);
+			vectorSnakeTwo = new PVector(snakeTwo.xPos, snakeTwo.yPos);
+			snakeOne.collisionDetection(apple, vectorSnakeOne);
+			snakeTwo.collisionDetection(apple, vectorSnakeTwo);
 			switch (modus.getSelectedMode()) {
 			case Modus.MULTIPLAYER:
 				twoPlayer();
 				modus.twoPlayer();
-				player2.move();
-				player2.display();
+				snakeTwo.move();
+				snakeTwo.display();
 				break;
 			case Modus.ARCADE:
 				modus.arcade();
@@ -60,13 +59,13 @@ public class MainSnake extends PApplet {
 			case Modus.VS_PC:
 				twoPlayer();
 				modus.twoPlayer();
-				player2.move();
-				player2.display();
-				player2.bot(apple);
-				player2.direction();
+				snakeTwo.move();
+				snakeTwo.display();
+				snakeTwo.autoMove(apple, this);
+				snakeTwo.direction();
 			}
-			player1.move();
-			player1.display();
+			snakeOne.move();
+			snakeOne.display();
 			for (Apple i : apple) {
 				i.display();
 			}
@@ -94,17 +93,17 @@ public class MainSnake extends PApplet {
 	}
 
 	public void keyPressed() {
-		player1.direction();
-		player2.direction();
+		snakeOne.direction();
+		snakeTwo.direction();
 		if (keyCode == 80) {
 			modus.setGameState(2);
 		}
 	}
 
 	public void twoPlayer() {
-		player1.tail.tailGotHit(p2);
-		player2.tail.tailGotHit(p1);
-		if (p1.dist(p2) < player1.rad) {
+		snakeOne.tail.tailGotHit(vectorSnakeOne);
+		snakeTwo.tail.tailGotHit(vectorSnakeOne);
+		if (vectorSnakeOne.dist(vectorSnakeTwo) < snakeOne.rad) {
 			textSize(100);
 			text("Game Over", 500, 400);
 			modus.setGameState(3);

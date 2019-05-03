@@ -49,8 +49,8 @@ public class SnakeTail extends ArrayList<PVector> {
 	 * 
 	 * @param player: PVector des Spielers
 	 */
-	public void grow(PVector player) {
-		this.add(player);
+	public void grow(PVector snake) {
+		this.add(snake);
 	}
 
 	/*
@@ -58,10 +58,10 @@ public class SnakeTail extends ArrayList<PVector> {
 	 * 
 	 * @param player: PVectoer des spielers
 	 */
-	public void hitTail(PVector player) {
+	public void hitTail(PVector snake) {
 		boolean gotHit = false;
 		for (int i = 1; i < this.size(); i++) {
-			if (player.dist(this.get(i)) < 2) {
+			if (snake.dist(this.get(i)) < 2) {
 				gotHit = true;
 			}
 		}
@@ -76,10 +76,10 @@ public class SnakeTail extends ArrayList<PVector> {
 	 * 
 	 * @param player: PVector des Gegners
 	 */
-	public void tailGotHit(PVector player) {
+	public void tailGotHit(PVector snake) {
 		boolean gotHit = false;
 		for (int i = 1; i < this.size(); i++) {
-			if (player.dist(this.get(i)) < 20) {
+			if (snake.dist(this.get(i)) < 20) {
 				gotHit = true;
 			}
 		}

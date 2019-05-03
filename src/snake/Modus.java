@@ -21,9 +21,9 @@ public class Modus {
 	public static final int ARCADE = 8;
 	public static final int VS_PC = 9;
 	private PApplet p;
-	private boolean  print;
+	private boolean print;
 	private PVector mouse, btn1, btn2, btn3, btn4;
-	private int rad, selectedMode, gameState, menuTime, countdown, punktePlayer1, punktePlayer2;
+	private int rad, selectedMode, gameState, menuTime, countdown, punkteSnakeOne, punkteSnakeTwo;
 	private PImage snake, logo;
 	private String spielerName;
 
@@ -66,7 +66,12 @@ public class Modus {
 			selectedMode = 7;
 		}
 		if (p.mousePressed && mouse.dist(btn2) < rad) {
-			spielerName = JOptionPane.showInputDialog("Spielername");
+			do {
+				spielerName = JOptionPane.showInputDialog("Spielername");
+				if(spielerName == null) {
+					return;
+				}
+			} while (spielerName.equals(""));
 			gameState = 1;
 			selectedMode = 8;
 		}
@@ -78,10 +83,8 @@ public class Modus {
 			try {
 				JOptionPane.showMessageDialog(null, FileInterpreter.scanManual());
 			} catch (HeadlessException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			} catch (FileNotFoundException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
@@ -111,14 +114,14 @@ public class Modus {
 		p.ellipse(btn3.x, btn3.y, rad, rad);
 
 	}
-	
+
 	/**
 	 * Fenster für Arcademodus anzeigen
 	 */
 	public void arcade() {
 		basis();
 		timer();
-		p.text("Punkte: " + punktePlayer1, p.width - 300, 150);
+		p.text("Punkte: " + punkteSnakeOne, p.width - 300, 150);
 
 	}
 
@@ -128,8 +131,8 @@ public class Modus {
 	public void twoPlayer() {
 		basis();
 		timer();
-		p.text("Punkte: " + punktePlayer2, 20, 150);
-		p.text("Punkte: " + punktePlayer1, p.width - 300, 150);
+		p.text("Punkte: " + punkteSnakeTwo, 20, 150);
+		p.text("Punkte: " + punkteSnakeOne, p.width - 300, 150);
 	}
 
 	/**
@@ -172,12 +175,13 @@ public class Modus {
 
 	/**
 	 * Punkteanzeige für Spieler
-	 * @param punktePlayer1
-	 * @param punktePlayer2
+	 * 
+	 * @param punkteSnakeOne
+	 * @param punkteSnakeTwo
 	 */
-	public void pointsAusgabe(int punktePlayer1, int punktePlayer2) {
-		this.punktePlayer1 = punktePlayer1;
-		this.punktePlayer2 = punktePlayer2;
+	public void pointsAusgabe(int punkteSnakeOne, int punkteSnakeTwo) {
+		this.punkteSnakeOne = punkteSnakeOne;
+		this.punkteSnakeTwo = punkteSnakeTwo;
 	}
 
 	/**
@@ -186,7 +190,7 @@ public class Modus {
 	public void fertigArcade() {
 		mouse = new PVector(p.mouseX, p.mouseY);
 		if (print == false) {
-			FileInterpreter.print(spielerName, punktePlayer1);
+			FileInterpreter.print(spielerName, punkteSnakeOne);
 			print = true;
 		}
 		p.fill(255);
@@ -236,7 +240,7 @@ public class Modus {
 	/**
 	 * Getters und Setters
 	 */
-	
+
 	public int getSelectedMode() {
 		return selectedMode;
 	}

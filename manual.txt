@@ -1,5 +1,7 @@
 Snake 3000
 
+Version: 1.0
+
 Steuerung:
 	Spieler 1: Pfeiltasten
 	Spieler 2: W,A,S,D
@@ -23,3 +25,7 @@ Das Ziel hier ist den Computer zu schlagen. Am Start muss eine Schwierigkeitsstu
 Stufe 1 repräsentiert die einfachste Stufe und Stufe 3 die härteste. Falls man dem Gegner in den Schwanz fährt gibt es 
 dem Gegner Punkteabzug. Im Falle eines Treffers von Kopf zu Kopf ist das Spiel vorbei und der Spieler mit mehr Punkten gewinnt. 
 Falls es nicht zu einem Treffer kommt ist das Spiel vorbei, wenn der Timer abläuft.
+
+Kontakt:
+Sylvain Gilgen
+gilgen@topomedics.ch
