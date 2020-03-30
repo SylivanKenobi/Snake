@@ -9,9 +9,11 @@ import java.util.Arrays;
 
 public class Snake extends Element {
     protected boolean isRight, isLeft, isUp, isDown = false;
+    private final int minDifficulty = 30;
+    private final int speedY = 20;
+    public final int rad = 40;
     private PVector vectorSnake;
-    private int keyUp, keyDown, keyLeft, keyRight, speedY, enemysHit, indexOfEnemy, gegnerAuswahl, applesGone,
-            difficulty, minDifficulty;
+    private int keyUp, keyDown, keyLeft, keyRight, indexOfEnemy, applesGone, difficulty;
     public SnakeTail tail;
     private Float[][] distanzMapToApples;
     private ArrayList<Apple> toRemove;
@@ -20,14 +22,10 @@ public class Snake extends Element {
 
     public Snake(PApplet p, int xPos, int yPos, int keyUp, int keyDown, int keyLeft, int KeyRight) {
         super(p, xPos, yPos);
-        speedY = 20;
         this.keyDown = keyDown;
         this.keyLeft = keyLeft;
         this.keyRight = KeyRight;
         this.keyUp = keyUp;
-        rad = 40;
-        minDifficulty = 30;
-        difficulty = 10;
         tail = new SnakeTail(p);
         distanzMapToApples = new Float[MainSnake.appleCount][2];
         toRemove = new ArrayList<>();
@@ -80,7 +78,7 @@ public class Snake extends Element {
      * Kollisionen zwischen Spieler und Apples erkennen
      */
     public void collisionDetection(AppleCollection apples, PVector vectorSnake) {
-        enemysHit = 0;
+        int enemysHit = 0;
         for (Apple e : apples) {
             float dist1 = PApplet.dist(e.xPos, e.yPos, xPos, yPos);
             if (dist1 < rad) {
@@ -140,7 +138,7 @@ public class Snake extends Element {
     /**
      * Mit dieser Methode spielt sich die Schlange selbst.
      */
-    public void autoMove(AppleCollection apples, MainSnake main) {
+    public void autoMove(AppleCollection apples, MainSnake mainSnake) {
         for (Apple a : apples) {
             for (int j = 0; j < 2; j++) {
                 vectorSnake = new PVector(xPos, yPos);
@@ -154,7 +152,7 @@ public class Snake extends Element {
         }
         Arrays.sort(distanzMapToApples, (a, b) -> Float.compare(a[0], b[0]));
         if (applesGone < tail.size()) {
-            gegnerAuswahl = (int) p.random(distanzMapToApples.length * difficulty) / minDifficulty;
+            int gegnerAuswahl = (int) p.random(distanzMapToApples.length * difficulty) / minDifficulty;
             indexOfEnemy = Math.round(distanzMapToApples[gegnerAuswahl][1]);
             applesGone++;
         }

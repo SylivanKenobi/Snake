@@ -1,0 +1,27 @@
+Snake 3000
+
+Control unit:
+	Player 1: Arrow keys
+	Player 2: W,A,S,D
+	Pause: P
+
+Duration: 30 seconds
+
+In this game there are 3 modes.
+
+1. multiplayer
+In this mode 2 players can play at the same time. The goal is to eat as many apples as possible. If you
+hit yourself you get points deducted. If you drive into the tail of your opponent he gets points deducted.
+In case of a head-to-head hit the game is over and the player with more points wins.
+If there is no hit, the game is over when the timer expires.
+
+2. Arcade
+In this mode the goal is to collect as many points as possible and beat the highscore. If you
+hit yourself you get points deducted. The game is over when the timer is at zero.
+
+3. vs pc
+The goal here is to beat the computer. At the start a difficulty level must be set. There are three levels
+Level 1 represents the easiest level and level 3 the hardest. If you hit yourself you get points deducted.
+If you drive into the tail of your opponent he gets points deducted.
+In case of a head-to-head hit the game is over and the player with more points wins.
+If there is no hit, the game is over when the timer expires.

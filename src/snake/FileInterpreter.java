@@ -10,22 +10,22 @@ import java.util.Scanner;
 import java.util.TreeMap;
 
 public class FileInterpreter {
-    static File file = new File("text.txt");
-    static File fileManual = new File("manual.txt");
+    static File file = new File("assets/text.txt");
+    static File fileManual = new File("assets/manual.txt");
 
     public static String scan() throws FileNotFoundException {
         TreeMap<Integer, String> scores = new TreeMap<Integer, String>(Collections.reverseOrder());
         String input = "";
-        Scanner scan = new Scanner(file);
+        Scanner scanner = new Scanner(file);
         String spieler = "";
         int score;
         int maxAusgabe = 0;
-        while (scan.hasNext()) {
-            spieler = scan.next();
-            score = scan.nextInt();
+        while (scanner.hasNext()) {
+            spieler = scanner.next();
+            score = scanner.nextInt();
             scores.put(score, spieler);
         }
-        scan.close();
+        scanner.close();
 
         for (Entry<Integer, String> entry : scores.entrySet()) {
             score = entry.getKey();
@@ -47,7 +47,6 @@ public class FileInterpreter {
             writer = new PrintWriter(fw);
 
         } catch (Exception i) {
-            System.out.println("bitch!!!");
             return false;
         }
         writer.println(name + " " + punkte);
@@ -57,12 +56,12 @@ public class FileInterpreter {
     }
 
     public static String scanManual() throws FileNotFoundException {
-        Scanner scanner = new Scanner(fileManual);
-        String manual = "";
+        Scanner scanner = new Scanner(fileManual, "ISO_8859_1");
+        StringBuilder manual = new StringBuilder();
         while (scanner.hasNextLine()) {
-            manual += scanner.nextLine() + "\n";
+            manual.append(scanner.nextLine()).append("\n");
         }
         scanner.close();
-        return manual;
+        return manual.toString();
     }
 }

@@ -66,12 +66,12 @@ public class MainSnake extends PApplet {
     }
 
     /**
-     * Methode zum kontrollieren ob eine Taste gedrückt wurde
+     * Methode zum kontrollieren ob eine Taste gedrï¿½ckt wurde
      */
     public void keyPressed() {
         snakeOne.direction();
         snakeTwo.direction();
-        if (keyCode == 80) {
+        if (keyCode == 80 && modus.getGameState() == Modus.GAME_RUNNING) {
             modus.setGameState(2);
         }
     }

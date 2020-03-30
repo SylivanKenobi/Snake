@@ -5,8 +5,6 @@ import processing.core.PImage;
 import processing.core.PVector;
 
 import javax.swing.*;
-import java.awt.*;
-import java.io.FileNotFoundException;
 
 /**
  * Klasse zum Darstellen der verschiedenen Modi
@@ -42,7 +40,7 @@ public class Modus {
         selectedMode = 0;
         print = false;
         p.getSurface().setIcon(logo);
-        p.getSurface().setTitle("Snake by Topomedics");
+        p.getSurface().setTitle("Snakey");
     }
 
     /**
@@ -86,9 +84,7 @@ public class Modus {
         if (p.mousePressed && mouse.dist(btn4) < rad) {
             try {
                 JOptionPane.showMessageDialog(null, FileInterpreter.scanManual());
-            } catch (HeadlessException e) {
-                e.printStackTrace();
-            } catch (FileNotFoundException e) {
+            } catch (Exception e) {
                 e.printStackTrace();
             }
         }
@@ -196,8 +192,7 @@ public class Modus {
     public void fertigArcade() {
         mouse = new PVector(p.mouseX, p.mouseY);
         if (!print) {
-            FileInterpreter.print(spielerName, punkteSnakeOne);
-            print = true;
+            print = FileInterpreter.print(spielerName, punkteSnakeOne);
         }
         p.fill(255);
         p.stroke(255);
@@ -246,10 +241,6 @@ public class Modus {
             System.exit(0);
         }
     }
-
-    /**
-     * Getters und Setters
-     */
 
     public int getSelectedMode() {
         return selectedMode;
